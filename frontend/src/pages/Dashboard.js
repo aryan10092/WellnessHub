@@ -16,7 +16,7 @@ const Dashboard = () => {
   const fetchPublishedSessions = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('/api/sessions')
+      const response = await axios.get('https://wellnesshub-1oc3.onrender.com/api/sessions')
       //console.log(response)
 
       setSessions(response.data);
