@@ -25,7 +25,7 @@ const SessionEditor = () => {
   const fetchSession = useCallback(async (sessionId) => {
     try {
       setLoading(true);
-      const response = await axios.get(`/api/sessions/my-sessions/${sessionId}`);
+      const response = await axios.get(`https://wellnesshub-1oc3.onrender.com/api/sessions/my-sessions/${sessionId}`);
       const session = response.data;
       //console.log('Fetched session:', session);
       
@@ -70,7 +70,7 @@ const SessionEditor = () => {
         payload.sessionId = id;
       }
 
-      const response = await axios.post('/api/sessions/my-sessions/save-draft', payload);
+      const response = await axios.post('https://wellnesshub-1oc3.onrender.com/api/sessions/my-sessions/save-draft', payload);
 
       setAutoSaveStatus('Saved');
       setLastSaved(new Date());
@@ -176,7 +176,7 @@ const SessionEditor = () => {
         payload.sessionId = id;
       }
 
-      await axios.post('/api/sessions/my-sessions/save-draft', payload);
+      await axios.post('https://wellnesshub-1oc3.onrender.com/api/sessions/my-sessions/save-draft', payload);
       toast.success('Draft saved successfully!');
       navigate('/my-sessions');
     } catch (error) {
@@ -205,7 +205,7 @@ const SessionEditor = () => {
         payload.sessionId = id;
       }
 
-      await axios.post('/api/sessions/my-sessions/publish', payload);
+      await axios.post('https://wellnesshub-1oc3.onrender.com/api/sessions/my-sessions/publish', payload);
       toast.success('Session published successfully!');
       navigate('/my-sessions');
     } catch (error) {
