@@ -19,7 +19,7 @@ const MySessions = () => {
   const fetchMySessions = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('/api/sessions/my-sessions')
+      const response = await axios.get('https://wellnesshub-1oc3.onrender.com/api/sessions/my-sessions')
       
      // console.log(response)
       setSessions(response.data);
@@ -39,7 +39,7 @@ const MySessions = () => {
     }
 
     try {
-      await axios.delete(`/api/sessions/my-sessions/${sessionId}`);
+      await axios.delete(`https://wellnesshub-1oc3.onrender.com/api/sessions/my-sessions/${sessionId}`);
       setSessions(sessions.filter(session => session._id !== sessionId));
       toast.success('Session deleted successfully');
     } catch (error) {
