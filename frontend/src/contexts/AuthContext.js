@@ -87,7 +87,7 @@ export const AuthProvider = ({ children }) => {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       
       // Try to get user's sessions to verify token
-      const response = await axios.get('/api/sessions/my-sessions');
+      const response = await axios.get('https://wellnesshub-1oc3.onrender.com/api/sessions/my-sessions');
       
       // If successful, extract user info from token
       const payload = JSON.parse(atob(token.split('.')[1]));
@@ -111,7 +111,7 @@ export const AuthProvider = ({ children }) => {
     try {
       dispatch({ type: 'LOGIN_START' });
       
-      const response = await axios.post('/api/auth/login', {
+      const response = await axios.post('https://wellnesshub-1oc3.onrender.com/api/auth/login', {
         email,
         password
       });
@@ -143,7 +143,7 @@ export const AuthProvider = ({ children }) => {
     try {
       dispatch({ type: 'LOGIN_START' });
       
-      const response = await axios.post('/api/auth/register', {
+      const response = await axios.post('https://wellnesshub-1oc3.onrender.com/api/auth/register', {
         email,
         password
       });
